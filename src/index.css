@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#e8e6e1] text-black;
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  }
+  
+  h1 {
+    @apply font-serif;
+  }
+}
+
+.vintage-container {
+  @apply relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("https://www.transparenttextures.com/patterns/old-paper.png");
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+.newspaper-title {
+  font-family: "UnifrakturCook", serif;
+  letter-spacing: -1px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.headline {
+  font-family: "Old Standard TT", serif;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.article-text {
+  font-family: "Old Standard TT", serif;
+  column-count: 2;
+  column-gap: 2rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.vintage-border {
+  @apply border-2 border-black;
+  box-shadow: 4px 4px 0 #000;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("https://www.transparenttextures.com/patterns/old-paper.png");
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}
+
+.vintage-link {
+  @apply relative inline-block;
+  &::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-black transform scale-x-0 transition-transform duration-300 origin-bottom-right;
+  }
+  &:hover::after {
+    @apply transform scale-x-100 origin-bottom-left;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-text {
+    column-count: 1;
+  }
+}
